@@ -1,0 +1,33 @@
+extends layout
+
+block head-content
+    link(rel="stylesheet" type="text/css" href="/css/index.css")
+
+block content
+    div.center
+        h1 Welcome to fritter!
+        div#account-options.center
+            div#login-button.button.center Login
+            div#signup-button.button.center Signup
+
+        form(method="post", action="/")#login.center.not-here
+            +username-and-password('existingUser')
+
+        form(method="post", action="/")#signup.center.not-here
+            +username-and-password('newUser')
+
+        if error
+            div#error-message.center= error
+
+        script(src="js/index.js")
+
+mixin username-and-password(usernameFieldTitle)
+    div.username-and-password.center
+        div
+            span.label Username:
+            input(type="text", name="#{usernameFieldTitle}", required="true", maxlength="20")
+        div
+            span.label Password:
+            input(type="password", name="password", required="true")
+        div.right.not-here
+            input(type="submit", value="login")

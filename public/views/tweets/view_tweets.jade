@@ -1,0 +1,46 @@
+extends ../layout
+
+block head-content
+    link(rel="stylesheet" type="text/css" href="/css/tweets.css")
+
+block content
+    include ../header
+    div.content
+        if error
+            div#view-tweets-error= error
+        else
+            div#view-tweets-error
+            h1 Here are all the tweets by users you follow
+            - each tweet in followingTweets
+                div
+                    div.tweet
+                        div Tweet: #{tweet.content}
+                        div Creator: #{tweet.creator.username}
+            h1 Here are all the tweets
+            - each tweet in tweets
+                div
+                    +tweetDisplay((currentUser == tweet.creator._id), tweet)
+
+
+            div.new.button.center New
+
+    script(type="text/javascript", src="js/tweets.js")
+
+mixin tweetDisplay(isMyTweet, tweet)
+    - var className = "tweet"
+    if isMyTweet
+        - className += " my-tweets"
+    div(tweet-id=tweet._id, class="#{className}")
+        div Tweet: #{tweet.content}
+        div Creator: #{tweet.creator.username}
+        div Favorited by: 
+            span(tweet-id=tweet._id).favorite-count= tweet.favoriteCount
+    span.edit-buttons
+        if isMyTweet
+            div(tweet-id=tweet._id).edit.button.center.small-button Edit
+            div(tweet-id=tweet._id).delete.button.center.small-button Delete
+        else
+            if favorites.indexOf(tweet._id) !== -1
+                div(tweet-id=tweet._id).favorite.button.center.small-button Unfavorite
+            else
+                div(tweet-id=tweet._id).favorite.button.center.small-button Favorite

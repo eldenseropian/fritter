@@ -1,0 +1,18 @@
+extends ../layout
+
+block head-content
+    link(rel="stylesheet" type="text/css" href="/css/tweets.css")
+
+block content
+    include ../header
+    div.content
+        h1 Create a new tweet
+        if tweet
+            div Error: invalid tweet.
+        form(method="post", action="/tweets/create")
+            textarea(type="text", maxlength=140, name="content", required="true", cols="170", rows="1")= tweet
+            div#tweet-button.button Tweet!
+            div.not-here
+                input(type="submit")#tweet-submit
+
+    script(type="text/javascript", src="/js/tweets.js")

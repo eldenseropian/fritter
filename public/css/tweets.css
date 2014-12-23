@@ -1,0 +1,68 @@
+/**
+ * CSS for tweet-specific pages (view tweets, edit tweet, new tweet).
+ *
+ * Colors used:
+ * rgb(119, 23, 12) red
+ * rgb(174, 117, 74) tan orange
+ * rgb(34, 2, 2) dark red/brown
+ * rgb(255, 116, 89) light tan
+ */
+
+body {
+    background: rgb(245, 238, 232);
+    color: rgb(34, 2, 2);
+}
+
+textarea {
+    background: none;
+    border: 1px solid rgb(34, 2, 2);
+    color: rgb(34, 2, 2);
+    font-family: "Century Gothic", sans-serif;
+    padding: 1em;
+    resize: none;
+}
+
+.content {
+    margin-left: 2em;
+}
+
+.small-button {
+    display: block;
+    font-size: .5em;
+    padding: .1em;
+    margin: .5em 1em;
+    width: 5em;
+}
+
+.small-button:hover,
+.new:hover,
+#update-button:hover,
+#tweet-button:hover {
+    color: rgb(255, 116, 89);
+    border-color: rgb(255, 116, 89);
+}
+
+.new {
+    margin: 1em 0;
+}
+
+.tweet {
+    display: inline-block;
+    margin-bottom: 1em;
+}
+
+.edit-buttons {
+    display: inline-block;
+}
+
+#update-button,
+#tweet-button {
+    display: block;
+    margin-top: 1em;
+    text-align: center;
+}
+
+#view-users-error {
+    color: red;
+    margin-bottom: 1em;
+}

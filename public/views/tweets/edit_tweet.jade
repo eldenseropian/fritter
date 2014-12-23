@@ -1,0 +1,18 @@
+extends ../layout
+
+block head-content
+    link(rel="stylesheet" type="text/css" href="/css/tweets.css")
+
+block content
+    include ../header
+    div.content
+        h1 Edit your tweet
+        if error
+            div Error: invalid tweet.
+        form(method="post", action="/tweets/update/" + tweet._id)
+            textarea(type="text", maxlength=140, name="content", required="true", cols="170", rows="1")= tweet.content
+            div#update-button.button Update!
+            div.not-here
+                input(type="submit", value="Update!")#submit-button
+
+    script(type="text/javascript", src="/js/tweets.js")

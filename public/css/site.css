@@ -1,0 +1,32 @@
+/**
+ * Site-wide CSS.
+ */
+
+body {
+    font-family: "Century Gothic", sans-serif;
+    margin: 0;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.not-here {
+    display: none;
+}
+
+.button {
+    border: 1px solid rgb(174, 117, 74);
+    border-radius: .25em;
+    color: rgb(174, 117, 74);
+    display: inline-block;
+    padding: .25em;
+    width: 4em;
+}
+
+.button:hover {
+    color: white;
+    border-color: white;
+}

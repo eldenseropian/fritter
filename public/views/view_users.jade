@@ -1,0 +1,31 @@
+extends layout
+
+block head-content
+    link(rel="stylesheet" type="text/css" href="/css/tweets.css")
+
+block content
+    include header
+    div.content
+        if error
+            div#view-users-error= error
+        else
+            div#view-users-error
+            h1 Here are all the users
+            - each user in users
+                div
+                    if currentUser == user._id
+                        span(id=user._id).user.me= user.username
+                    else
+                        span(id=user._id).user= user.username
+                        if following.filter(function(u) { if (u.username == user.username) return true; }).length > 0
+                            span.edit-buttons
+                                div(id=user._id).follow.button.center.small-button Unfollow
+                        else
+                            span.edit-buttons
+                                div(id=user._id).follow.button.center.small-button Follow
+            h1 Here are the users you follow
+            div#list-of-following
+                - each user in following
+                    div.user= user.username
+
+    script(type="text/javascript", src="js/users.js")

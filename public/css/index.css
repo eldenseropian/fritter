@@ -1,0 +1,42 @@
+/**
+ * CSS for the signup/login home page.
+ */
+
+body {
+    background-image: url("/img/background.JPG");
+    color: white;
+    padding-top: 4em;
+}
+
+input[type="text"],
+input[type="password"] {
+    background: none;
+    border: 1px solid white;
+    color: white;
+}
+
+.label {
+    display: inline-block;
+    margin-right: .5em;
+    text-align: right;
+    width: 5em;
+}
+
+.selected {
+    border-color: white;
+    color: white;
+}
+
+#error-message {
+    margin-top: 4em;
+    width: 30em;
+}
+
+.username-and-password {
+    margin-top: 5em;
+    width: 14em;
+}
+
+#login-button {
+    margin-right: 1em;
+}
